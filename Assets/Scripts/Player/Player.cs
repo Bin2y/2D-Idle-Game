@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [field : SerializeField] public PlayerSO data { get; private set; }
-
+    [field: SerializeField] public PlayerAnimationData AnimationData { get; private set; }
     public Animator animator { get; private set; }
 
     private PlayerStateMachine stateMachine;
@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        AnimationData.Initialize();
         animator = GetComponentInChildren<Animator>();
         stateMachine = new PlayerStateMachine(this);
         controller = GetComponent<CharacterController2D>();
@@ -21,10 +22,15 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        stateMachine.ChangeState(stateMachine.chasingState);
+        stateMachine.ChangeState(stateMachine.idleState);
     }
     private void Update()
     {
         stateMachine.Update();
+    }
+
+    private void FixedUpdate()
+    {
+        stateMachine.PhysicsUpdate();
     }
 }

@@ -7,14 +7,17 @@ using UnityEngine;
 public class PlayerAnimationData
 {
     [SerializeField] private string idleParameterName = "Idle";
-    [SerializeField] private string walkParmeterName = "Walk";
+    [SerializeField] private string runParmeterName = "Run";
+    [SerializeField] private string attackParameterName = "Attack";
  
     public int idleParameterHash { get; private set; }
-    public int walkParameterHash { get; private set; }
+    public int runParameterHash { get; private set; }
+    public int attackParameterHash { get; private set; }
 
     public void Initialize()
     {
         idleParameterHash = Animator.StringToHash(idleParameterName);
-        walkParameterHash = Animator.StringToHash(walkParmeterName);
+        runParameterHash = Animator.StringToHash(runParmeterName);
+        attackParameterHash = Animator.StringToHash(attackParameterName);
     }
 }

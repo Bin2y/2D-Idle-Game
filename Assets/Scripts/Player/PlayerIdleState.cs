@@ -11,11 +11,16 @@ public class PlayerIdleState : PlayerBaseState
     public override void Enter()
     {
         base.Enter();
+        Debug.Log("IdleMode");
+        StartAnimation(stateMachine.player.AnimationData.idleParameterHash);
     }
 
     public override void Exit()
     {
         base.Exit();
+        Debug.Log("idleOut");
+        StopAnimation(stateMachine.player.AnimationData.idleParameterHash);
+
     }
 
     public override void Update()
@@ -25,5 +30,10 @@ public class PlayerIdleState : PlayerBaseState
         {
             stateMachine.ChangeState(stateMachine.chasingState);
         }
+    }
+
+    public override void PhysicsUpdate()
+    {
+        base.PhysicsUpdate();
     }
 }

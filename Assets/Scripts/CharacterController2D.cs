@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class CharacterController2D : MonoBehaviour
 {
+    private Rigidbody2D rb;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
     public void Move(Vector2 value)
     {
-        Debug.Log(value);
-        transform.position += (Vector3)value;
+        rb.velocity = value;
     }
 }

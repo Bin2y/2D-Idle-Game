@@ -7,6 +7,7 @@ public interface IState
     public void Enter();
     public void Exit();
     public void Update();
+    public void PhysicsUpdate();  
 }
 public abstract class StateMachine
 {
@@ -22,5 +23,10 @@ public abstract class StateMachine
     public void Update()
     {
         currentState?.Update();
+    }
+
+    public void PhysicsUpdate()
+    {
+        currentState?.PhysicsUpdate();
     }
 }

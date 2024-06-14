@@ -18,7 +18,7 @@ public class PlayerAttackInfoData
     [field: SerializeField] public float BaseDamage { get; private set; } = 1f;
     [field: SerializeField][field: Range(0f, 2f)] public float DamageModifier { get; private set; } = 1f;
     [field: SerializeField] public float AttackRange { get; private set; } = 1f;
-    [field: SerializeField] public float EnemyChasingRange { get; private set; } = 100f;
+    [field: SerializeField] public float EnemyChasingRange { get; private set; } = 10f;
 
 }
 

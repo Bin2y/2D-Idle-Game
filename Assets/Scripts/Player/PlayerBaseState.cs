@@ -24,7 +24,10 @@ public class PlayerBaseState : IState
     public virtual void Update()
     {
         TraceTarget();
-        Move();
+    }
+
+    public virtual void PhysicsUpdate()
+    {
     }
 
     protected void StartAnimation(int animatorHash)
@@ -37,16 +40,16 @@ public class PlayerBaseState : IState
         stateMachine.player.animator.SetBool(animatorHash, false);
     }
 
-    private void Move()
+    protected void Move()
     {
         Vector2 movementDirection = GetMovementDirection();
         Move(movementDirection);
         Rotate(movementDirection);
-        Debug.Log("Moving");
     }
 
     private Vector2 GetMovementDirection()
     {
+        if (stateMachine.target == null) return Vector2.zero;
         Vector2 direction = (stateMachine.target.transform.position - stateMachine.player.transform.position).normalized;
         return direction;
     }
@@ -69,14 +72,20 @@ public class PlayerBaseState : IState
 
     private void Rotate(Vector2 direction)
     {
-
+        //TODO : 좌우 방향에 따라서 flip 해보기?
     }
 
     
 
     protected bool IsInChasinginRange()
     {
+        if(stateMachine.target == null) return false;
         float enemyDistanceSqr = (stateMachine.target.transform.position - stateMachine.target.transform.position).sqrMagnitude;
         return enemyDistanceSqr <= stateMachine.player.data.AttackData.EnemyChasingRange * stateMachine.player.data.AttackData.EnemyChasingRange;
+    }
+
+    protected bool IsInAttackinRange()
+    {
+        return false;
     }
 }
