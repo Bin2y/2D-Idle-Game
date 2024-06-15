@@ -9,8 +9,11 @@ public class Player : MonoBehaviour
     public Animator animator { get; private set; }
     public SpriteRenderer spriteRenderer { get; private set; }
 
-    private PlayerStateMachine stateMachine;
+    public PlayerStateMachine stateMachine;
     public CharacterController2D controller { get; private set; }
+
+    public AttackHandler attackHandler { get; private set; }
+    public Health health { get; private set; }
 
     public bool isChasing = false;
 
@@ -22,6 +25,8 @@ public class Player : MonoBehaviour
         stateMachine = new PlayerStateMachine(this);
         controller = GetComponent<CharacterController2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        health = GetComponent<Health>();
+        attackHandler = GetComponentInChildren<AttackHandler>();
     }
 
     private void Start()

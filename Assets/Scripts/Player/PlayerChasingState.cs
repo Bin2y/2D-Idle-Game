@@ -11,7 +11,7 @@ public class PlayerChasingState : PlayerBaseState
 
     public override void Enter()
     {
-        stateMachine.movementSpeedModifier = 3;
+        stateMachine.movementSpeedModifier = 10;
         base.Enter();
         Debug.Log("Chasing Mode");
         StartAnimation(stateMachine.player.AnimationData.runParameterHash);
