@@ -25,6 +25,6 @@ public class EnemyAttackInfoData
 [CreateAssetMenu(fileName = "Enemy", menuName = "Charaters/Enemy")]
 public class EnemySO : ScriptableObject
 {
-	[field: SerializeField] public PlayerData EnemyData { get; private set; }
+	[field: SerializeField] public EnemyData EnemyData { get; private set; }
 	[field: SerializeField] public EnemyAttackInfoData EnemyAttackInfoData { get; private set; }
 }
