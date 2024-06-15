@@ -15,26 +15,35 @@ public class PlayerChasingState : PlayerBaseState
         base.Enter();
         Debug.Log("Chasing Mode");
         StartAnimation(stateMachine.player.AnimationData.runParameterHash);
+        stateMachine.isChasing = true;
+
     }
 
     public override void Exit()
     {
         base.Exit();
         StopAnimation(stateMachine.player.AnimationData.runParameterHash);
+        stateMachine.isChasing = false;
     }
 
     public override void Update()
     {
         base.Update();
-        if(stateMachine.target == null)
+        if (stateMachine.target == null || !IsInChasinginRange())
         {
             stateMachine.ChangeState(stateMachine.idleState);
+            return;
         }
+        if (IsInAttackinRange())
+        {
+            stateMachine.ChangeState(stateMachine.attackState);
+            return;
+        }
+        
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-        Move();
     }
 }

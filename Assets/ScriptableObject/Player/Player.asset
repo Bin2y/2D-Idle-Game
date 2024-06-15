@@ -19,5 +19,5 @@ MonoBehaviour:
   <AttackData>k__BackingField:
     <BaseDamage>k__BackingField: 1
     <DamageModifier>k__BackingField: 1
-    <AttackRange>k__BackingField: 0
+    <AttackRange>k__BackingField: 1
     <EnemyChasingRange>k__BackingField: 10

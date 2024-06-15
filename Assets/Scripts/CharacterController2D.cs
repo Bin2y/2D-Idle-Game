@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharacterController2D : MonoBehaviour
 {
+    //간단하게 리지드바디를 이용해서 움직임 구현
     private Rigidbody2D rb;
 
     private void Awake()
@@ -14,4 +15,5 @@ public class CharacterController2D : MonoBehaviour
     {
         rb.velocity = value;
     }
+
 }

@@ -28,6 +28,10 @@ public class PlayerBaseState : IState
 
     public virtual void PhysicsUpdate()
     {
+        if (stateMachine.isChasing)
+            Move();
+        else
+            StopMove();
     }
 
     protected void StartAnimation(int animatorHash)
@@ -47,6 +51,11 @@ public class PlayerBaseState : IState
         Rotate(movementDirection);
     }
 
+    protected void StopMove()
+    {
+        Move(Vector2.zero);
+    }
+
     private Vector2 GetMovementDirection()
     {
         if (stateMachine.target == null) return Vector2.zero;
@@ -57,12 +66,13 @@ public class PlayerBaseState : IState
     {
         stateMachine.target = GameObject.FindGameObjectWithTag("Enemy");
     }
-
+    
     private void Move(Vector2 direction)
     {
         float movementSpeed = GetMovementSpeed();
         stateMachine.player.controller.Move((direction * movementSpeed) * Time.deltaTime);
     }
+
 
     private float GetMovementSpeed()
     {
@@ -72,7 +82,8 @@ public class PlayerBaseState : IState
 
     private void Rotate(Vector2 direction)
     {
-        //TODO : 좌우 방향에 따라서 flip 해보기?
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        stateMachine.player.spriteRenderer.flipX = angle > 90 ? true : false;
     }
 
     
@@ -80,12 +91,14 @@ public class PlayerBaseState : IState
     protected bool IsInChasinginRange()
     {
         if(stateMachine.target == null) return false;
-        float enemyDistanceSqr = (stateMachine.target.transform.position - stateMachine.target.transform.position).sqrMagnitude;
+        float enemyDistanceSqr = (stateMachine.target.transform.position - stateMachine.player.transform.position).sqrMagnitude;
         return enemyDistanceSqr <= stateMachine.player.data.AttackData.EnemyChasingRange * stateMachine.player.data.AttackData.EnemyChasingRange;
     }
 
     protected bool IsInAttackinRange()
     {
-        return false;
+        if (stateMachine.target == null) return false;
+        float enemyDistanceSqr = (stateMachine.target.transform.position - stateMachine.player.transform.position).sqrMagnitude;
+        return enemyDistanceSqr <= stateMachine.player.data.AttackData.AttackRange * stateMachine.player.data.AttackData.AttackRange;
     }
 }

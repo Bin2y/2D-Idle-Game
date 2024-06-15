@@ -7,9 +7,12 @@ public class Player : MonoBehaviour
     [field : SerializeField] public PlayerSO data { get; private set; }
     [field: SerializeField] public PlayerAnimationData AnimationData { get; private set; }
     public Animator animator { get; private set; }
+    public SpriteRenderer spriteRenderer { get; private set; }
 
     private PlayerStateMachine stateMachine;
     public CharacterController2D controller { get; private set; }
+
+    public bool isChasing = false;
 
 
     private void Awake()
@@ -18,6 +21,7 @@ public class Player : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         stateMachine = new PlayerStateMachine(this);
         controller = GetComponent<CharacterController2D>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Start()

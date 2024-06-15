@@ -10,6 +10,9 @@ public class PlayerStateMachine : StateMachine
     public float movementSpeed {  get; private set; }
     public float movementSpeedModifier { get; set; }
 
+    public bool isChasing { get; set; }
+
+
     public GameObject target { get;  set; }
 
     public PlayerIdleState idleState { get; private set; }

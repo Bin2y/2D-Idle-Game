@@ -10,6 +10,7 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void Enter()
     {
+        stateMachine.movementSpeedModifier = 0f;
         base.Enter();
         Debug.Log("IdleMode");
         StartAnimation(stateMachine.player.AnimationData.idleParameterHash);
