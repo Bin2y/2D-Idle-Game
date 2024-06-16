@@ -46,6 +46,7 @@ public class Inventory : MonoBehaviour
 
     public void OnEquipButton()
     {
+        if (weaponSlots[selectedWeaponIndex].quantity == 0) return;//갯수가 0개면 장착불가능
         if (weaponSlots[curEquipIndex].equipped)
         {
             UnEquip(curEquipIndex);
@@ -66,4 +67,26 @@ public class Inventory : MonoBehaviour
             SelectItem(selectedWeaponIndex);
         }
     }
+
+    public int synthesisQuantityMax = 25;
+    //일괄합성버튼 나중에 리팩토링할때 클래스로 따로 빼도 괜찮을것 같다.
+    public void OnSynthesisAll()
+    {
+        int quaotient;
+        int remainder;
+        for (int i = 0; i < weaponSlots.Length - 1; i++)
+        {
+            quaotient = 0;
+            remainder = 0;
+            if (weaponSlots[i].quantity < synthesisQuantityMax) continue;
+            if (weaponSlots[i].quantity / synthesisQuantityMax != 0)
+            {
+                quaotient = weaponSlots[i].GetQuantity() / synthesisQuantityMax;
+                remainder = weaponSlots[i].GetQuantity() % synthesisQuantityMax;
+            }
+            weaponSlots[i].SetQuantity(remainder,setType.Remainder);
+            weaponSlots[i + 1].SetQuantity(quaotient, setType.Quaotient);
+        }
+    }
 }
+

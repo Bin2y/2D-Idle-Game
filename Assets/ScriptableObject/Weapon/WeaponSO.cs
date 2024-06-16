@@ -15,7 +15,7 @@ public enum EquipType
 public class WeaponSO : ScriptableObject
 {
     public EquipType equipType;
-    [field: SerializeField][field: Range(1, 5)] public int Rank;
+    [field: SerializeField][field: Range(0, 5)] public int Rank;
     [field: SerializeField] public int AttackPowerModifierPlus;
     [field: SerializeField] public int AttackPowerModifierMultiply;
 }
