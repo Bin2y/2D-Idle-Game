@@ -17,7 +17,7 @@ MonoBehaviour:
     <WalkSpeedModifier>k__BackingField: 0.225
     <BaseHealth>k__BackingField: 100
   <AttackData>k__BackingField:
-    <BaseDamage>k__BackingField: 1
+    <BaseDamage>k__BackingField: 50
     <DamageModifier>k__BackingField: 1
     <AttackRange>k__BackingField: 1
     <EnemyChasingRange>k__BackingField: 10

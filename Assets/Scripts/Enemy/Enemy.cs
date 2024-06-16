@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -14,6 +15,7 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
+        GameManager.Instance.enemy = this;
         animator = GetComponentInChildren<Animator>();
         stateMachine = new EnemyStateMachine(this);
         attackHandler = GetComponentInChildren<EnemyAttackHandler>();  
@@ -23,6 +25,14 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         stateMachine.ChangeState(stateMachine.idleState);
+        //일단 코인보상은 몬스터의 체력만큼주는것으로
+        data.GoldReward = health.maxHealth;
+        health.OnDie += Die;
+    }
+
+    private void Die()
+    {
+        GameManager.Instance.gold += data.GoldReward;
     }
     private void Update()
     {

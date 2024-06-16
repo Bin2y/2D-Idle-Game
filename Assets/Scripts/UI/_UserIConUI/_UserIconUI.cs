@@ -10,7 +10,19 @@ public class _UserIconUI : MonoBehaviour
 
     private void Start()
     {
-        
+
+    }
+
+    private void UpdateGoldText()
+    {
+        goldText.text = GameManager.Instance.gold.ToString();
+    }
+
+
+    private void Update()
+    {
+        //일단 업데이트로 구현
+        UpdateGoldText();
     }
 
 }
