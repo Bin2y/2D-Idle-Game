@@ -1084,7 +1084,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1207922475363162639}
+  m_TargetGraphic: {fileID: 350766675}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -2448,6 +2448,7 @@ GameObject:
   - component: {fileID: 815796261}
   - component: {fileID: 815796262}
   - component: {fileID: 815796265}
+  - component: {fileID: 815796266}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2544,6 +2545,18 @@ MonoBehaviour:
   maxHealth: 100
   health: 0
   IsDie: 0
+--- !u!114 &815796266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815796259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7238033fc3463834ab56de3319225485, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &890340558
 GameObject:
   m_ObjectHideFlags: 0
@@ -3666,7 +3679,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1281969848}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1610387835}
+        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+        m_MethodName: OnEquipButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1281969848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4152,7 +4177,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1207922475363162639}
+  m_TargetGraphic: {fileID: 1397168111}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -4438,7 +4463,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1207922475363162639}
+  m_TargetGraphic: {fileID: 1472534077}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -4953,7 +4978,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1207922475363162639}
+  m_TargetGraphic: {fileID: 1585578120}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -5026,6 +5051,7 @@ MonoBehaviour:
   weaponSlotPannel: {fileID: 1207922473865543124}
   equipButton: {fileID: 1281969845}
   selectedWeaponIndex: 0
+  curEquipIndex: 0
 --- !u!1 &1868670507
 GameObject:
   m_ObjectHideFlags: 0

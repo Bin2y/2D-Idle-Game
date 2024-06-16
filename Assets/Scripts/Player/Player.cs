@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     public AttackHandler attackHandler { get; private set; }
     public Health health { get; private set; }
 
+    public Equipment equipment { get; private set; }
+
     public bool isChasing = false;
 
 
@@ -28,6 +30,7 @@ public class Player : MonoBehaviour
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         health = GetComponent<Health>();
         attackHandler = GetComponentInChildren<AttackHandler>();
+        equipment = GetComponent<Equipment>();
     }
 
     private void Start()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +17,7 @@ public class Inventory : MonoBehaviour
     private WeaponSO selectedWeapon;
 
     public int selectedWeaponIndex;
+    public int curEquipIndex;
 
     private void Start()
     {
@@ -35,7 +37,33 @@ public class Inventory : MonoBehaviour
         selectedWeapon = weaponSlots[index].data;
         selectedWeaponIndex = index;
 
-        equipButton.SetActive(true);
+        //선택된게 장착이되어있으면 장착버튼 비활성화
+        if (!weaponSlots[selectedWeaponIndex].equipped)
+            equipButton.SetActive(true);
+        else equipButton.SetActive(false);
         infoText.text = $"AttackPower {selectedWeapon.AttackPowerModifierPlus.ToString()} + \n AttackPower {selectedWeapon.AttackPowerModifierMultiply.ToString()} *";
+    }
+
+    public void OnEquipButton()
+    {
+        if (weaponSlots[curEquipIndex].equipped)
+        {
+            UnEquip(curEquipIndex);
+        }
+        GameManager.Instance.player.equipment.Equip(weaponSlots[selectedWeaponIndex].data);
+        weaponSlots[selectedWeaponIndex].equipped = true;
+        curEquipIndex = selectedWeaponIndex;
+        equipButton.SetActive(false);
+    }
+
+    void UnEquip(int index)
+    {
+        weaponSlots[index].equipped = false;
+        //UpdateUI();
+
+        if (selectedWeaponIndex == index)
+        {
+            SelectItem(selectedWeaponIndex);
+        }
     }
 }

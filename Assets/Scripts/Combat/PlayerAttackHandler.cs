@@ -19,7 +19,7 @@ public class PlayerAttackHandler : AttackHandler
     public override void OnAttack()
     {
         GameObject go = GetTarget();
-        int damage = (int)player.data.AttackData.BaseDamage;
+        int damage = (int)player.data.AttackData.BaseDamage +(int)player.data.AttackData.DamageModifier;
         if (go.TryGetComponent<Health>(out Health health))
         {
             health.TakeDamage(damage);
