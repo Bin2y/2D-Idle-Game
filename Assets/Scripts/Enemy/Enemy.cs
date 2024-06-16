@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [field: SerializeField] public EnemySO data { get; private set; }
+    [field: SerializeField] public EnemySO data { get; set; }
     public Animator animator { get; private set; }
     public EnemyStateMachine stateMachine;
     public EnemyAttackHandler attackHandler { get; private set; }
@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
         //일단 코인보상은 몬스터의 체력만큼주는것으로
         data.GoldReward = health.maxHealth;
         health.OnDie += Die;
+        health.OnDie += GameManager.Instance.NextWave;
     }
 
     private void Die()
