@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 137b9cd0d11ce604282fcb8684b7ece9, type: 3}
   m_Name: Weapon0002
   m_EditorClassIdentifier: 
-  AttackPowerModifierPlus: 0
-  AttackPowerModifierMultiply: 0
+  Rank: 4
+  AttackPowerModifierPlus: 20
+  AttackPowerModifierMultiply: 20

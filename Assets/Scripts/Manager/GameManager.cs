@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+    public Player player;
     public Enemy enemy;
     public int gold { get; set; }
 

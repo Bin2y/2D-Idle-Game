@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        GameManager.Instance.player = this;
         AnimationData.Initialize();
         animator = GetComponentInChildren<Animator>();
         stateMachine = new PlayerStateMachine(this);
