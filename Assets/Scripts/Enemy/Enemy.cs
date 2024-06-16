@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     public EnemyAttackHandler attackHandler { get; private set; }
     public Health health { get; private set; }
 
+    [field: SerializeField] public PlayerAnimationData AnimationData { get; private set; }
+
 
     private void Awake()
     {
@@ -19,7 +21,8 @@ public class Enemy : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         stateMachine = new EnemyStateMachine(this);
         attackHandler = GetComponentInChildren<EnemyAttackHandler>();  
-        health = GetComponent<Health>();  
+        health = GetComponent<Health>();
+        AnimationData.Initialize();
     }
 
     private void Start()

@@ -24,7 +24,8 @@ public class _UserIconUI : MonoBehaviour
     }
     private void UpdateWaveText()
     {
-        waveText.text = GameManager.Instance.wave.ToString();
+        waveText.text = "Wave : " + GameManager.Instance.wave.ToString();
+
     }
 
 
