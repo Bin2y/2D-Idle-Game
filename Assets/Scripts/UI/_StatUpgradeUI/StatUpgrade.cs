@@ -7,6 +7,7 @@ public class StatUpgrade : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI goldValueText;
     [SerializeField] private UpgradeStatSO upgradeStatSO;
+    [SerializeField] private UpgradePannelUI upgradePannelUI;
 
     private void Start()
     {
@@ -58,6 +59,7 @@ public class StatUpgrade : MonoBehaviour
                 break;
         }
         SetGoldValueText();
+        upgradePannelUI.updatedStatUI.SetUpgradeStat();
     }
     public void NoMoneyAlertOnLog()
     {

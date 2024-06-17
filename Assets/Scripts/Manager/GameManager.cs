@@ -13,7 +13,7 @@ public class GameManager : Singleton<GameManager>
 
     public float minY = -3.6f, minX = -2.4f;
     public float maxY = 3.6f, maxX = 2.5f; //게임진행 최대 맵 크기
-    public BigInteger gold { get; set; } = 99999999;
+    public BigInteger gold { get; set; } = 10000;
     public int wave { get; set; } = 1;
 
 
