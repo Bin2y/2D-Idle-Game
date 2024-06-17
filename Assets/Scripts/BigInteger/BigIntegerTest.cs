@@ -1,5 +1,4 @@
 ﻿using System;
-using ScottGarland;
 
 namespace Keiwando.BigIntegerTest {
 
