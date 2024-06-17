@@ -27,5 +27,5 @@ public class EnemySO : ScriptableObject
 {
     [field: SerializeField] public EnemyData EnemyData { get; private set; }
     [field: SerializeField] public EnemyAttackInfoData EnemyAttackInfoData { get; private set; }
-    public int GoldReward;
+    public BigInteger GoldReward;
 }

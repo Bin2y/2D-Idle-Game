@@ -20,9 +20,10 @@ public class EnemyAttackHandler : AttackHandler
     {
         GameObject go = GetTarget();
         int damage = (int)enemy.data.EnemyAttackInfoData.BaseDamage * (int)enemy.data.EnemyAttackInfoData.DamageModifier;
+        int shield = (int)go.GetComponent<Player>().data.PlayerData.BaseShield + (int)go.GetComponent<Player>().data.PlayerData.ShieldModifier;
         if (go.TryGetComponent<Health>(out Health health))
         {
-            health.TakeDamage(damage);
+            health.TakeDamage(damage, shield);
         }
     }
 }

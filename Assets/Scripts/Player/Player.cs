@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [field : SerializeField] public PlayerSO data { get; private set; }
+    [field: SerializeField] public PlayerSO data { get; private set; }
     [field: SerializeField] public PlayerAnimationData AnimationData { get; private set; }
     public Animator animator { get; private set; }
     public SpriteRenderer spriteRenderer { get; private set; }
@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
 
     public AttackHandler attackHandler { get; private set; }
     public Health health { get; private set; }
-
     public Equipment equipment { get; private set; }
 
     public bool isChasing = false;

@@ -15,6 +15,7 @@ public class PlayerBaseState : IState
     }
     public virtual void Enter()
     {
+       stateMachine.player.health.StartCoroutine(stateMachine.player.health.RecoverHealth(playerData.HealthRecoverModifier));
     }
 
     public virtual void Exit()
@@ -23,6 +24,7 @@ public class PlayerBaseState : IState
 
     public virtual void Update()
     {
+        ApplyStat();
         TraceTarget();
     }
 
@@ -100,5 +102,10 @@ public class PlayerBaseState : IState
         if (stateMachine.target == null) return false;
         float enemyDistanceSqr = (stateMachine.target.transform.position - stateMachine.player.transform.position).sqrMagnitude;
         return enemyDistanceSqr <= stateMachine.player.data.AttackData.AttackRange * stateMachine.player.data.AttackData.AttackRange;
+    }
+
+    protected void ApplyStat()
+    {
+        stateMachine.player.health.maxHealth = (int)stateMachine.player.data.PlayerData.BaseHealth + (int)stateMachine.player.data.PlayerData.HealthModifier;
     }
 }

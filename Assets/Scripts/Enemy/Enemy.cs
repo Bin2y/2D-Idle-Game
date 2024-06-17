@@ -36,6 +36,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        //죽으면 OnDie에 골드보상을 이벤트로 처리
         GameManager.Instance.gold += data.GoldReward;
     }
     private void Update()

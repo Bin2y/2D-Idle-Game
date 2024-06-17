@@ -20,7 +20,7 @@ public class _UserIconUI : MonoBehaviour
     }
     private void UpdateGoldText()
     {
-        goldText.text = GameManager.Instance.gold.ToString();
+        goldText.text = GameManager.Instance.gold.BigIntergerToUnit();
     }
     private void UpdateWaveText()
     {
