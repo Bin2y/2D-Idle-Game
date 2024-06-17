@@ -1,5 +1,4 @@
-# 프로젝트 이름
-Simple 2D Idle Game
+# Simple 2D Idle Game
 ## 📖 목차
 1. [프로젝트 소개](#프로젝트-소개)
 2. [주요기능](#주요기능)
