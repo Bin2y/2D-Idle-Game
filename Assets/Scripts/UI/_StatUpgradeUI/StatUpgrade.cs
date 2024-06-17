@@ -24,7 +24,7 @@ public class StatUpgrade : MonoBehaviour
                     break;
                 }
                 upgradeStatSO.Attack += 10;
-                GameManager.Instance.player.data.AttackData.DamageModifier += 1;
+                GameManager.Instance.player.data.AttackData.DamageModifier += 10;
                 PayPrice();
                 break;
             case (UpGradeStat.Shield):
@@ -34,7 +34,7 @@ public class StatUpgrade : MonoBehaviour
                     break;
                 }
                 upgradeStatSO.Shield += 10;
-                GameManager.Instance.player.data.PlayerData.ShieldModifier += 1;
+                GameManager.Instance.player.data.PlayerData.ShieldModifier += 10;
                 PayPrice();
                 break;
             case (UpGradeStat.Health):
@@ -44,7 +44,7 @@ public class StatUpgrade : MonoBehaviour
                     break;
                 }
                 upgradeStatSO.Health += 10;
-                GameManager.Instance.player.data.PlayerData.HealthModifier += 1;
+                GameManager.Instance.player.data.PlayerData.HealthModifier += 10;
                 PayPrice();
                 break;
             case (UpGradeStat.Recover):
@@ -54,7 +54,7 @@ public class StatUpgrade : MonoBehaviour
                     break;
                 }
                 upgradeStatSO.Recover += 5;
-                GameManager.Instance.player.data.PlayerData.HealthRecoverModifier += 1;
+                GameManager.Instance.player.data.PlayerData.HealthRecoverModifier += 10;
                 PayPrice();
                 break;
         }
