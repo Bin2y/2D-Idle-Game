@@ -20,7 +20,7 @@ public class SpawnManager : Singleton<SpawnManager>
     {
         nextData = currentData;
         nextData.EnemyData.BaseHealth += 50f;
-        nextData.EnemyAttackInfoData.DamageModifier = currentData.EnemyAttackInfoData.DamageModifier + 1f;
+        nextData.EnemyAttackInfoData.DamageModifier = currentData.EnemyAttackInfoData.DamageModifier + 4f;
         currentData = nextData;
     }
     //적이 죽으면 해당 동작

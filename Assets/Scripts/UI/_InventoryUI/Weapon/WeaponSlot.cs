@@ -27,6 +27,7 @@ public class WeaponSlot : MonoBehaviour
     {
         OnQuantityChangeEvent += SetQuantityText;
         SetRankText();
+        SetQuantityText();
     }
 
     public void SetQuantity(int amount, setType value)
