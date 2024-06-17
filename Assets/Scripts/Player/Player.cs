@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
 
     public bool isChasing = false;
 
-
     private void Awake()
     {
         GameManager.Instance.player = this;

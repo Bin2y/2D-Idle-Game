@@ -19,7 +19,7 @@ public class SpawnManager : Singleton<SpawnManager>
     public void SetNextEnemyData()
     {
         nextData = currentData;
-        nextData.EnemyData.BaseHealth =  + 100f;
+        nextData.EnemyData.BaseHealth += 100f;
         nextData.EnemyAttackInfoData.DamageModifier = currentData.EnemyAttackInfoData.DamageModifier + 3f;
         currentData = nextData;
     }
