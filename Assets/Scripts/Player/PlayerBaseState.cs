@@ -15,7 +15,7 @@ public class PlayerBaseState : IState
     }
     public virtual void Enter()
     {
-       stateMachine.player.health.StartCoroutine(stateMachine.player.health.RecoverHealth(playerData.HealthRecoverModifier));
+        stateMachine.player.health.StartCoroutine(stateMachine.player.health.RecoverHealth(playerData.HealthRecoverModifier));
     }
 
     public virtual void Exit()
@@ -66,9 +66,10 @@ public class PlayerBaseState : IState
     }
     private void TraceTarget()
     {
-        stateMachine.target = GameObject.FindGameObjectWithTag("Enemy");
+        if (GameManager.Instance.enemy.gameObject != null)
+            stateMachine.target = GameManager.Instance.enemy.gameObject;
     }
-    
+
     private void Move(Vector2 direction)
     {
         float movementSpeed = GetMovementSpeed();
@@ -88,11 +89,11 @@ public class PlayerBaseState : IState
         stateMachine.player.spriteRenderer.flipX = angle > 90 ? true : false;
     }
 
-    
+
 
     protected bool IsInChasinginRange()
     {
-        if(stateMachine.target == null) return false;
+        if (stateMachine.target == null) return false;
         float enemyDistanceSqr = (stateMachine.target.transform.position - stateMachine.player.transform.position).sqrMagnitude;
         return enemyDistanceSqr <= stateMachine.player.data.AttackData.EnemyChasingRange * stateMachine.player.data.AttackData.EnemyChasingRange;
     }

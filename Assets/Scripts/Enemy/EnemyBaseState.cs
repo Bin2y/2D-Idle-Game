@@ -31,7 +31,8 @@ public class EnemyBaseState : IState
 
     private void TraceTarget()
     {
-        stateMachine.target = GameObject.FindGameObjectWithTag("Player");
+        if (GameManager.Instance.player.gameObject != null)
+            stateMachine.target = GameManager.Instance.player.gameObject;
     }
 
     protected void StartAnimation(int animatorHash)

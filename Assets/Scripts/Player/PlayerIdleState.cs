@@ -30,6 +30,7 @@ public class PlayerIdleState : PlayerBaseState
         if(IsInChasinginRange())
         {
             stateMachine.ChangeState(stateMachine.chasingState);
+            return;
         }
     }
 

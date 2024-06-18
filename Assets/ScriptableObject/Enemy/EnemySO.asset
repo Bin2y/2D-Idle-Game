@@ -18,6 +18,6 @@ MonoBehaviour:
     <BaseHealth>k__BackingField: 100
   <EnemyAttackInfoData>k__BackingField:
     <BaseDamage>k__BackingField: 1
-    <DamageModifier>k__BackingField: 1
+    <DamageModifier>k__BackingField: 3
     <AttackRange>k__BackingField: 1
     <EnemyChasingRange>k__BackingField: 10
